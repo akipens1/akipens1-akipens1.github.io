@@ -222,6 +222,7 @@
       z-index: 1000;
       align-items: center;
       justify-content: center;
+      overflow-y: auto; /* Adds a scrollbar if the image is too tall for the screen */
       transition: opacity 0.3s ease;
     }
 
@@ -257,17 +258,23 @@
 
     .modal-container {
       position: relative;        /* Required for absolute positioning of the X */
-      display: inline-block;     /* CRITICAL: Container stays the same width as the image */
+      display: flex;     /* CRITICAL: Container stays the same width as the image */
+      flex-direction: column; 
+      align-items: center;
       max-width: 90%;
+      max-height: 95vh;     /* Keeps the whole thing within view */
       margin: auto;
     }
 
     .modal-content {
       display: block;            /* Removes bottom gap in some browsers */
-      max-height: 75vh; 
+      max-width: 100%;      /* Ensures image doesn't overflow container */
+      max-height: 70vh;     /* Leaves room for the caption below */
       border: 3px solid var(--linen-whisper);
       border-radius: 8px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+      object-fit: contain;  /* Maintains aspect ratio */
+
     }
 
     .modal-caption {
@@ -374,7 +381,7 @@
         <a href="mailto:akipenskaia@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
         <a href="https://www.linkedin.com/in/angelika-kipenskaia-3576b6268/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://www.instagram.com/angelikaakipp" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@angekip" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.tiktok.com/@angelakip" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
       </div>
     </div>
   </header>
@@ -403,14 +410,13 @@
         </div>
         
         <div class="row">
-          <span class="degree">B.S. in Psychology</span>
+          <span class="degree">B.S. in Psychology, minors: Marketing, Information Systems</span>
         </div>
         <div class="row">
           <span class="dates">January 2022 – May 2026</span>
         </div>
-        <div class="details">
-          <p>Minors: Marketing, Information Systems</p>
-          <p>GPA: 3.94/4.0</p>
+        <div class="row">
+          <span class="dates">GPA: 3.94/4.0</span>
         </div>
       </div>
 
@@ -425,6 +431,24 @@
           <span class="dates">August 2026 – August 2027</span>
         </div>
       </div>
+    </section>
+    
+    <section class="scroll">
+      <h2>Marketing Campaigns</h2>
+      <div class="portfolio-carousel">
+        <a href="coca-cola-gen-z.pdf" target="_blank" rel="noopener noreferrer">
+          <img src="coca-cola-gen-z_thumbnail.jpg" alt="Coca-Cola + Gen Z Marketing Campaign" loading="lazy" />
+        </a>
+        
+        <a href="elf-campaign.pdf" target="_blank" rel="noopener noreferrer">
+          <img src="elf-campaign-thumbnail.jpg" alt="E.L.F. Brand Extension Proposal" loading="lazy" />
+        </a>
+
+        <a href="rhode_summer.pdf" target="_blank" rel="noopener noreferrer">
+          <img src="rhode_summer_thumbnail.jpg" alt="The Strategy Stand-Off: Rhode vs. Summer Fridays" loading="lazy" />
+        </a>
+        
+        </div>
     </section>
 
     <section class="scroll">
@@ -476,24 +500,6 @@
           <li>Co-presented research at psychological conferences</li>
         </ul>
       </div>
-    </section>
-
-    <section class="scroll">
-      <h2>Marketing Campaigns</h2>
-      <div class="portfolio-carousel">
-        <a href="coca-cola-gen-z.pdf" target="_blank" rel="noopener noreferrer">
-          <img src="coca-cola-gen-z_thumbnail.jpg" alt="Coca-Cola + Gen Z Marketing Campaign" loading="lazy" />
-        </a>
-        
-        <a href="elf-campaign.pdf" target="_blank" rel="noopener noreferrer">
-          <img src="elf-campaign-thumbnail.jpg" alt="E.L.F. Brand Extension Proposal" loading="lazy" />
-        </a>
-
-        <a href="rhode_summer.pdf" target="_blank" rel="noopener noreferrer">
-          <img src="rhode_summer_thumbnail.jpg" alt="The Strategy Stand-Off: Rhode vs. Summer Fridays" loading="lazy" />
-        </a>
-        
-        </div>
     </section>
 
     <section class="scroll">
@@ -611,8 +617,8 @@
 <div id="modal3" class="modal">
   <div class="modal-container">
     <a href="#" class="close-btn">&times;</a>
-    <img src="IMG_1224.jpg" class="modal-content">
-    <p class="modal-caption">I just got admitted to grad school at American University's Kogod School of Business!</p>
+    <img src="IMG_4147.jpg" class="modal-content">
+    <p class="modal-caption">I'm happy to announce that I will be pursuing my M.S. in Marketing Analytics at American University's Kogod School of Business!</p>
   </div>
 </div>
 
